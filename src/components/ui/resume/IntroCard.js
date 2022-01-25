@@ -10,9 +10,9 @@ const IntroCard = () => {
 
   return (
     <div className={darkTheme ? classDark : classLight}>
-      <h1 className={darkTheme ? classTitleDark : classTitleLight}>
+      <h2 className={darkTheme ? classTitleDark : classTitleLight}>
         Hello World! <br /> I'm Renato Júnio Oliveira.
-      </h1>
+      </h2>
       <p className="has-text-justified">
         My academic background focus on the study of languages and cultures.
         However, during the pandemic, I took the opportunity to further expand

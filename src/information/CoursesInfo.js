@@ -6,7 +6,6 @@ export const listOfCourses = [
     link: 'https://www.iefp.pt/detalheservico?id=324648',
     dateStart: '2021-06',
     dateEnd: '2021-09',
-
     description:
       'Here I learned the fundamentals of software engeneering, how to structure projects, write algorithms, basic C, and intermediate level JS, HTML5 and CSS3.',
   },

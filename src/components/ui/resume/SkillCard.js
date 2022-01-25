@@ -15,7 +15,7 @@ const SkillCard = () => {
   const typesOfSkills = [...new Set(listOfSkills.map(skill => skill.type))];
   const Skills = typesOfSkills.map((type, key) => (
     <div className={darkTheme ? classDark : classLight} key={key}>
-      <h2 className={darkTheme ? classTitleDark : classTitleLight}>{type}</h2>
+      <h3 className={darkTheme ? classTitleDark : classTitleLight}>{type}</h3>
       {listOfSkills.map(skill =>
         skill.type === type ? (
           <SkillItem

@@ -16,7 +16,7 @@ const MainNavigation = props => {
   const darkTheme = useTheme();
   const updateThemeHandler = useUpdateTheme();
 
-  const tabClass = 'navbar-item is-size-5 has-text-weight-semibold';
+  const tabClass = 'navbar-item is-size-6 has-text-weight-semibold';
 
   const navClassDark = `navbar has-background-danger-dark is-danger is-fixed-top`;
   const iconClassDark = 'fas has-text-danger-light';

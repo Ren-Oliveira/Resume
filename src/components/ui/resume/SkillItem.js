@@ -2,8 +2,8 @@ import 'bulma/css/bulma.min.css';
 
 const SkillItem = skill => {
   const darkTheme = skill.theme;
-  const classTitleDark = 'pl-4 has-text-danger-light';
-  const classTitleLight = 'pl-4 has-text-success-dark';
+  const classTitleDark = 'pl-4 has-text-danger-light is-size-6';
+  const classTitleLight = 'pl-4 has-text-success-dark is-size-6';
   const classProgressDark = 'progress is-danger';
   const classProgressLight = 'progress is-success';
 

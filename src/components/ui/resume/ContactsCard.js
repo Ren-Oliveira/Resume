@@ -14,8 +14,8 @@ const ContactsCard = () => {
 
   const boxDark = 'box content has-background-dark has-text-danger-light';
   const boxLight = 'box content has-background-light has-text-success-dark';
-  const titleDark = 'subtitle has-text-centered has-text-danger-light';
-  const titleLight = 'subtitle has-text-centered has-text-success-dark';
+  const titleDark = 'has-text-centered has-text-danger-light is-size-6';
+  const titleLight = ' has-text-centered has-text-success-dark is-size-6';
   const iconDark = 'fas has-text-danger-dark';
   const iconLight = 'fas has-text-success';
 
@@ -30,7 +30,7 @@ const ContactsCard = () => {
           <Icon
             icon={faUser}
             className="fas has-text-white"
-            transform="shrink-6"
+            transform="shrink-8"
           />
         </div>
         <div className={darkTheme ? titleDark : titleLight}>
@@ -44,7 +44,7 @@ const ContactsCard = () => {
           <Icon
             icon={faMapMarker}
             className="fas has-text-white"
-            transform="shrink-6"
+            transform="shrink-8"
           />
         </div>
         <p className={darkTheme ? titleDark : titleLight}>Portugal, Braga</p>
@@ -56,14 +56,14 @@ const ContactsCard = () => {
           <Icon
             icon={faAt}
             className="fas has-text-white"
-            transform="shrink-6"
+            transform="shrink-8"
           />
         </div>
         <a
-          href="mailto:3renato@gmail.com"
+          href="mailto:ren-jun-oliveira@gmail.com"
           className={darkTheme ? titleDark : titleLight}
         >
-          3renato@gmail.com
+          Ren.Jun.Oliveira@gmail.com
         </a>
       </div>
 
@@ -73,14 +73,14 @@ const ContactsCard = () => {
           <Icon
             icon={faGithub}
             className="fas has-text-white"
-            transform="shrink-6"
+            transform="shrink-8"
           />
         </div>
         <a
-          href="https://github.com/RenatoJunio"
+          href="https://github.com/Ren-Oliveira"
           className={darkTheme ? titleDark : titleLight}
         >
-          RenatoJunio
+          Ren-Oliveira
         </a>
       </div>
 
@@ -97,7 +97,7 @@ const ContactsCard = () => {
           href="https://www.linkedin.com/in/renato-junio-oliveira/"
           className={darkTheme ? titleDark : titleLight}
         >
-          renato-junio-oliveira
+          Renato-Junio-Oliveira
         </a>
       </div>
     </div>

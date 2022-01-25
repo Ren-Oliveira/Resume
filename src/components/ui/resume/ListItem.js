@@ -3,11 +3,11 @@ import { Fragment } from 'react';
 
 const Item = props => {
   const theme = props.theme;
-  const classTitleDark = 'has-text-danger-light is-marginless';
-  const classTitleLight = 'has-text-success-dark is-marginless';
-  const classDetailDark = 'has-text-danger has-text-weight-semibold is-size-5';
+  const classTitleDark = 'has-text-danger-light is-marginless  is-size-5';
+  const classTitleLight = 'has-text-success-dark is-marginless  is-size-5';
+  const classDetailDark = 'has-text-danger has-text-weight-semibold is-size-6';
   const classDetailLight =
-    'has-text-success has-text-weight-semibold is-size-5';
+    'has-text-success has-text-weight-semibold is-size-7';
 
   return (
     <Fragment>

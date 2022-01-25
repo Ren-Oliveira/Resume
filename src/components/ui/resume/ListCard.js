@@ -25,7 +25,7 @@ const ListCard = props => {
 
   return (
     <div className={darkTheme ? BoxDark : BoxLight}>
-      <h2 className={darkTheme ? TitleDark : TitleLight}>{props.title}</h2>
+      <h3 className={darkTheme ? TitleDark : TitleLight}>{props.title}</h3>
       {props.text && <p className="has-text-justified mb-5">{props.text}</p>}
       {list}
     </div>
