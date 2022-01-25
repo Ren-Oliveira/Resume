@@ -14,8 +14,10 @@ const ContactsCard = () => {
 
   const boxDark = 'box content has-background-dark has-text-danger-light';
   const boxLight = 'box content has-background-light has-text-success-dark';
+
   const titleDark = 'has-text-centered has-text-danger-light is-size-6';
   const titleLight = ' has-text-centered has-text-success-dark is-size-6';
+
   const iconDark = 'fas has-text-danger-dark';
   const iconLight = 'fas has-text-success';
 

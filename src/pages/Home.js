@@ -3,13 +3,21 @@ import 'bulma/css/bulma.min.css';
 
 const Home = () => {
   const darkTheme = useTheme();
+
   const backgroundDark = 'has-background-black-ter is-danger';
   const backgroundLight = 'has-background-danger-light is-success-dark';
 
   const titleDark = 'has-text-danger';
   const titleLight = 'has-text-success-dark';
+
   const subtitleDark = 'has-text-danger-light';
   const subtitleLight = 'has-text-success';
+
+  const message = `${
+    ~~(Math.random() * 2) === 0
+      ? 'A full-stack dev in the making!'
+      : 'A front-end dev for hire!'
+  }`;
 
   return (
     <div className={darkTheme ? backgroundDark : backgroundLight}>
@@ -23,9 +31,14 @@ const Home = () => {
             </div>
             <div className="subtitle is-size-3 has-text-weight-semibold">
               <p className={darkTheme ? subtitleDark : subtitleLight}>
-                A full-stack dev in the making!
+                {message}
               </p>
             </div>
+            <br />
+            <h4>
+              <strong>Warning:</strong> This page is currently under
+              construction.
+            </h4>
           </div>
         </div>
       </div>
