@@ -21,14 +21,14 @@ export const listOfSkills = [
     key: 'React',
     name: 'React',
     type: 'Programming',
-    value: 75,
+    value: 70,
   },
-  {
-    key: 'Vue.js',
-    name: 'Vue.js',
-    type: 'Programming',
-    value: 50,
-  },
+  // {
+  //   key: 'Vue.js',
+  //   name: 'Vue.js',
+  //   type: 'Programming',
+  //   value: 50,
+  // },
   {
     key: 'Next.js',
     name: 'Next.js',
