@@ -41,6 +41,7 @@ const Home = () => {
             </h4>
           </div>
         </div>
+        <div className="hero-foot">Copyright</div>
       </div>
     </div>
   );
