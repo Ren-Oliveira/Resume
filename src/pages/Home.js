@@ -41,7 +41,9 @@ const Home = () => {
             </h4>
           </div>
         </div>
-        <div className="hero-foot">Copyright</div>
+        <div className="hero-foot has-text-centered">
+          Copyright Renato Oliveira
+        </div>
       </div>
     </div>
   );
