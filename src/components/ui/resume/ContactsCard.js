@@ -86,6 +86,7 @@ const ContactsCard = () => {
         <a
           href="https://github.com/Ren-Oliveira"
           className={darkTheme ? titleDark : titleLight}
+          target="_blank"
         >
           Ren-Oliveira
         </a>
@@ -103,6 +104,7 @@ const ContactsCard = () => {
         <a
           href="https://www.linkedin.com/in/renato-junio-oliveira/"
           className={darkTheme ? titleDark : titleLight}
+          target="_blank"
         >
           Ren-Oliveira
         </a>
@@ -119,6 +121,7 @@ const ContactsCard = () => {
         <a
           href="https://www.behance.net/ren-oliveira"
           className={darkTheme ? titleDark : titleLight}
+          target="_blank"
         >
           Ren-Oliveira
         </a>
