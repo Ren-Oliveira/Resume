@@ -6,7 +6,11 @@ import {
   faAt,
   faMapMarker,
 } from '@fortawesome/free-solid-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import {
+  faGithub,
+  faLinkedin,
+  faBehanceSquare,
+} from '@fortawesome/free-brands-svg-icons';
 import { useTheme } from '../../../store/ThemeContext';
 
 const ContactsCard = () => {
@@ -26,6 +30,7 @@ const ContactsCard = () => {
   return (
     <div className={darkTheme ? boxDark : boxLight}>
       <h2 className={darkTheme ? titleDark : titleLight}>Contact Info</h2>
+      <br />
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
@@ -92,14 +97,30 @@ const ContactsCard = () => {
           <Icon
             icon={faLinkedin}
             className="fas has-text-white"
-            transform="shrink-6"
+            transform="shrink-8"
           />
         </div>
         <a
           href="https://www.linkedin.com/in/renato-junio-oliveira/"
           className={darkTheme ? titleDark : titleLight}
         >
-          Renato-Junio-Oliveira
+          Ren-Oliveira
+        </a>
+      </div>
+      <div className="media">
+        <div className={media}>
+          <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
+          <Icon
+            icon={faBehanceSquare}
+            className="fas has-text-white"
+            transform="shrink-8"
+          />
+        </div>
+        <a
+          href="https://www.linkedin.com/in/renato-junio-oliveira/"
+          className={darkTheme ? titleDark : titleLight}
+        >
+          Ren-Oliveira
         </a>
       </div>
     </div>

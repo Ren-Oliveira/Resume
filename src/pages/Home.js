@@ -19,6 +19,8 @@ const Home = () => {
       : 'A front-end dev for hire!'
   }`;
 
+  const greeting = `${~~(Math.random() * 2) === 0 ? 'Hello!' : 'Hi!'}`;
+
   return (
     <div className={darkTheme ? backgroundDark : backgroundLight}>
       <div className="hero is-fullheight">
@@ -26,7 +28,7 @@ const Home = () => {
           <div className="container has-text-centered is-unselectable">
             <div className="title is-size-1 has-text-weight-bold">
               <p className={darkTheme ? titleDark : titleLight}>
-                Hello! I'm Renato.
+                {greeting} I'm Renato.
               </p>
             </div>
             <div className="subtitle is-size-3 has-text-weight-semibold">
@@ -34,15 +36,10 @@ const Home = () => {
                 {message}
               </p>
             </div>
-            <br />
-            <h4>
-              <strong>Warning:</strong> This page is currently under
-              construction.
-            </h4>
           </div>
         </div>
-        <div className="hero-foot has-text-centered">
-          Copyright Renato Oliveira
+        <div className="hero-foot has-text-centered is-size-7">
+          © 2022 by Renato Oliveira. All rights reserved.
         </div>
       </div>
     </div>
