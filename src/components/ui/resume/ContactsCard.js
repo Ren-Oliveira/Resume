@@ -117,7 +117,7 @@ const ContactsCard = () => {
           />
         </div>
         <a
-          href="https://www.linkedin.com/in/renato-junio-oliveira/"
+          href="https://www.behance.net/ren-oliveira"
           className={darkTheme ? titleDark : titleLight}
         >
           Ren-Oliveira
