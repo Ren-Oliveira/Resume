@@ -33,6 +33,7 @@ const MainNavigation = props => {
           setIsBurgerActive(!isBurgerActive);
         }
       }}
+      id="nav"
     >
       <div className="navbar-brand">
         <div

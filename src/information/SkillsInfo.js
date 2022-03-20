@@ -88,13 +88,13 @@ export const listOfSkills = [
     key: 'Spanish',
     name: 'Spanish',
     type: 'Languages',
-    value: 55,
+    value: 40,
   },
   {
     key: 'Mandarin',
     name: 'Mandarin',
     type: 'Languages',
-    value: 45,
+    value: 33,
   },
   {
     key: 'Teamwork',
