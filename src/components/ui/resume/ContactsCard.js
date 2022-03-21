@@ -1,4 +1,4 @@
-import 'bulma/css/bulma.min.css';
+import { useTheme } from '../../../store/ThemeContext';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import {
   faCircle,
@@ -11,7 +11,7 @@ import {
   faLinkedin,
   faBehanceSquare,
 } from '@fortawesome/free-brands-svg-icons';
-import { useTheme } from '../../../store/ThemeContext';
+import 'bulma/css/bulma.min.css';
 
 const ContactsCard = () => {
   const darkTheme = useTheme();
@@ -24,6 +24,7 @@ const ContactsCard = () => {
 
   const iconDark = 'fas has-text-danger-dark';
   const iconLight = 'fas has-text-success';
+  const icon = 'fas has-text-white';
 
   const media = 'media-left icon is-medium fa-layers fa-fw fa-2x';
 
@@ -34,11 +35,7 @@ const ContactsCard = () => {
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
-          <Icon
-            icon={faUser}
-            className="fas has-text-white"
-            transform="shrink-8"
-          />
+          <Icon icon={faUser} className={icon} transform="shrink-8" />
         </div>
         <div className={darkTheme ? titleDark : titleLight}>
           Renato Júnio Oliveira
@@ -48,11 +45,7 @@ const ContactsCard = () => {
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
-          <Icon
-            icon={faMapMarker}
-            className="fas has-text-white"
-            transform="shrink-8"
-          />
+          <Icon icon={faMapMarker} className={icon} transform="shrink-8" />
         </div>
         <p className={darkTheme ? titleDark : titleLight}>Portugal, Braga</p>
       </div>
@@ -60,11 +53,7 @@ const ContactsCard = () => {
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
-          <Icon
-            icon={faAt}
-            className="fas has-text-white"
-            transform="shrink-8"
-          />
+          <Icon icon={faAt} className={icon} transform="shrink-8" />
         </div>
         <a
           href="mailto:ren-jun-oliveira@gmail.com"
@@ -77,11 +66,7 @@ const ContactsCard = () => {
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
-          <Icon
-            icon={faGithub}
-            className="fas has-text-white"
-            transform="shrink-8"
-          />
+          <Icon icon={faGithub} className={icon} transform="shrink-8" />
         </div>
         <a
           href="https://github.com/Ren-Oliveira"
@@ -96,11 +81,7 @@ const ContactsCard = () => {
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
-          <Icon
-            icon={faLinkedin}
-            className="fas has-text-white"
-            transform="shrink-8"
-          />
+          <Icon icon={faLinkedin} className={icon} transform="shrink-8" />
         </div>
         <a
           href="https://www.linkedin.com/in/renato-junio-oliveira/"
@@ -114,11 +95,7 @@ const ContactsCard = () => {
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
-          <Icon
-            icon={faBehanceSquare}
-            className="fas has-text-white"
-            transform="shrink-8"
-          />
+          <Icon icon={faBehanceSquare} className={icon} transform="shrink-8" />
         </div>
         <a
           href="https://www.behance.net/ren-oliveira"

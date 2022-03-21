@@ -1,6 +1,6 @@
 import FetchData from '../../helpers/FetchData';
 
-const HistoryCard = () => {
+const CredentialsCard = () => {
   return (
     <>
       <FetchData type="certification" title="Certifications" />
@@ -10,4 +10,4 @@ const HistoryCard = () => {
   );
 };
 
-export default HistoryCard;
+export default CredentialsCard;

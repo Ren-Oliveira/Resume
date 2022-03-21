@@ -5,7 +5,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
-const MainNavigation = props => {
+const MainNavigation = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
   const toggleBurgerHandler = () => setIsBurgerActive(!isBurgerActive);
 
@@ -19,9 +19,10 @@ const MainNavigation = props => {
   const tabClass = 'navbar-item is-size-6 has-text-weight-semibold';
 
   const navClassDark = `navbar has-background-danger-dark is-danger is-fixed-top`;
-  const iconClassDark = 'fas has-text-danger-light';
   const navClassLight = `navbar has-background-success is-success is-fixed-top`;
+
   const iconClassLight = 'fas has-text-success-light';
+  const iconClassDark = 'fas has-text-danger-light';
 
   return (
     <nav

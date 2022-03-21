@@ -1,16 +1,16 @@
 import { useTheme } from '../store/ThemeContext';
 
-import IntroCard from '../components/ui/resume/IntroCard';
+import CredentialsCard from '../components/ui/resume/CredentialsCard';
 import ContactsCard from '../components/ui/resume/ContactsCard';
 import SkillCard from '../components/ui/resume/SkillCard';
+import IntroCard from '../components/ui/resume/IntroCard';
 
 import 'bulma/css/bulma.min.css';
-import HistoryCard from '../components/ui/resume/HistoryCard';
 
-const Resume = props => {
+const Resume = () => {
   const darkTheme = useTheme();
-  const classDark = 'section has-background-black-ter';
-  const classLight = 'section has-background-danger-light';
+  const classDark = 'section has-background-black-ter pr-0 pl-0';
+  const classLight = 'section has-background-success-light pr-0 pl-0';
 
   return (
     <section className={darkTheme ? classDark : classLight}>
@@ -18,7 +18,7 @@ const Resume = props => {
         <div className="columns is-desktop">
           <div className="column is-two-thirds-desktop">
             <IntroCard />
-            <HistoryCard />
+            <CredentialsCard />
           </div>
           <div className="column is-one-third-desktop">
             <ContactsCard />

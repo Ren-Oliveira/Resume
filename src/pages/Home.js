@@ -4,22 +4,23 @@ import 'bulma/css/bulma.min.css';
 const Home = () => {
   const darkTheme = useTheme();
 
-  const backgroundDark = 'has-background-black-ter is-danger';
-  const backgroundLight = 'has-background-danger-light is-success-dark';
-
-  const titleDark = 'has-text-danger';
+  const backgroundDark = 'has-background-black-ter';
+  const backgroundLight = 'has-background-success-light';
+  const titleDark = 'has-text-danger-light';
   const titleLight = 'has-text-success-dark';
-
-  const subtitleDark = 'has-text-danger-light';
+  const subtitleDark = 'has-text-danger';
   const subtitleLight = 'has-text-success';
 
-  const message = `${
-    ~~(Math.random() * 2) === 0
-      ? 'A full-stack dev in the making!'
-      : 'A front-end dev for hire!'
-  }`;
+  const randomNum = function () {
+    return ~~(Math.random() * 3);
+  };
 
-  const greeting = `${~~(Math.random() * 2) === 0 ? 'Hello!' : 'Hi!'}`;
+  const message = [
+    'A full-stack dev in the making!',
+    'A front-end dev for hire!',
+    'An ambitious web developer!',
+  ];
+  const greeting = ['Hello!', 'Welcome!', 'Hi!'];
 
   return (
     <div className={darkTheme ? backgroundDark : backgroundLight}>
@@ -28,18 +29,20 @@ const Home = () => {
           <div className="container has-text-centered is-unselectable">
             <div className="title is-size-1 has-text-weight-bold">
               <p className={darkTheme ? titleDark : titleLight}>
-                {greeting} I'm Renato.
+                {greeting[randomNum()]} I'm Renato.
               </p>
             </div>
             <div className="subtitle is-size-3 has-text-weight-semibold">
               <p className={darkTheme ? subtitleDark : subtitleLight}>
-                {message}
+                {message[randomNum()]}
               </p>
             </div>
           </div>
         </div>
         <div className="hero-foot has-text-centered is-size-7">
-          © 2022 by Renato Oliveira. All rights reserved.
+          <p className={darkTheme ? subtitleDark : subtitleLight}>
+            © 2022 by Renato Oliveira. All rights reserved.
+          </p>
         </div>
       </div>
     </div>
