@@ -7,6 +7,7 @@ import 'bulma/css/bulma.min.css';
 
 const MainNavigation = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
+
   const toggleBurgerHandler = () => setIsBurgerActive(!isBurgerActive);
 
   const activeClass = 'is-active';
@@ -43,9 +44,9 @@ const MainNavigation = () => {
           role="button"
           onClick={toggleBurgerHandler}
         >
-          <span></span>
-          <span></span>
-          <span></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
         </div>
       </div>
 
