@@ -1,0 +1,115 @@
+{
+  "skills" : {
+      "\"HTML5\"" : {
+      "name": "HTML5",
+      "type": "Programming",
+      "value": 90
+    },
+    
+      "\"CSS3\"" : {
+      "name": "CSS3",
+      "type": "Programming",
+      "value": 80
+    },
+      "\"JavaScript\"" : {
+      "name": "JavaScript",
+      "type": "Programming",
+      "value": 70
+    },
+      "\"React\"" : {
+      "name": "React",
+      "type": "Programming",
+      "value": 60
+    },
+      "\"Next\"" : {
+      "name": "Next.js",
+      "type": "Programming",
+      "value": 25
+    },
+      "\"Bulma\"" : {
+      "name": "Bulma.io",
+      "type": "Programming",
+      "value": 63
+    },
+      "\"Bootstrap\"" : {
+      "name": "Bootstrap",
+      "type": "Programming",
+      "value": 45
+    },
+      "\"PHP\"" : {
+      "name": "PHP",
+      "type": "Programming",
+      "value": 40
+    },
+      "\"MySQL\"" : {
+      "name": "MySQL",
+      "type": "Programming",
+      "value": 30
+    },
+      "\"C\"" : {
+      "name": "C",
+      "type": "Programming",
+      "value": 30
+    },
+      "\"Git\"" : {
+      "name": "Git",
+      "type": "Programming",
+      "value": 80
+    },
+      "\"English\"" : {
+      "name": "English",
+      "type": "Languages",
+      "value": 95
+    },
+      "\"Portuguese\"" : {
+      "name": "Portuguese",
+      "type": "Languages",
+      "value": 99
+    },
+      "\"Spanish\"" : {
+      "name": "Spanish",
+      "type": "Languages",
+      "value": 40
+    },
+      "\"Mandarin\"" : {
+      "name": "Mandarin",
+      "type": "Languages",
+      "value": 33
+    },
+      "\"Teamwork\"" : {
+      "name": "Teamwork",
+      "type": "Soft Skills",
+      "value": 87
+    },
+      "\"Time management\"" : {
+      "name": "Time management",
+      "type": "Soft Skills",
+      "value": 95
+    },
+      "\"Agile and Scrum\"" : {
+      "name": "Agile and Scrum",
+      "type": "Soft Skills",
+      "value": 72
+    },
+      "\"Leadership\"" : {
+      "name": "Leadership",
+      "type": "Soft Skills",
+      "value": 79
+    },
+      "\"Critical thinking\"" : {
+      "name": "Critical thinking",
+      "type": "Soft Skills",
+      "value": 84
+    },
+      "\"Delegation\"" : {
+      "name": "Delegation",
+      "type": "Soft Skills",
+      "value": 92
+    },
+      "\"Creative\"" : {
+      "name": "Creative",
+      "type": "Soft Skills",
+      "value": 82
+    }
+  }
+}
