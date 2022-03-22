@@ -1,5 +1,6 @@
 import { useTheme } from '../store/ThemeContext';
 import 'bulma/css/bulma.min.css';
+import SocialMedia from '../components/ui/home/SocialMedia';
 
 const Home = () => {
   const darkTheme = useTheme();
@@ -40,6 +41,7 @@ const Home = () => {
           </div>
         </div>
         <div className="hero-foot has-text-centered is-size-7">
+          <SocialMedia />
           <p className={darkTheme ? subtitleDark : subtitleLight}>
             © 2022 by Renato Oliveira. All rights reserved.
           </p>
