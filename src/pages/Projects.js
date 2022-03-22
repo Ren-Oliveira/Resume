@@ -20,6 +20,10 @@ const Projects = props => {
       <div className="hero is-fullheight">
         <div className="hero-body">
           <div className="container is-centered is-max-widescreen">
+            <div className="has-text-centered mb-5 is-size-5 has-text-warning-dark">
+              This section is currently under construction...
+            </div>
+
             <div className="columns">
               <ProjectCard
                 projectName={'Cardio Log'}
