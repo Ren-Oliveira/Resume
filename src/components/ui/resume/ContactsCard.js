@@ -84,7 +84,7 @@ const ContactsCard = () => {
           <Icon icon={faLinkedin} className={icon} transform="shrink-8" />
         </div>
         <a
-          href="https://www.linkedin.com/in/renato-junio-oliveira/"
+          href="https://www.linkedin.com/in/ren-oliveira/"
           className={darkTheme ? titleDark : titleLight}
           target="_blank"
           rel="noreferrer"
