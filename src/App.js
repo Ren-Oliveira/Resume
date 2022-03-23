@@ -3,6 +3,7 @@ import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Resume from './pages/Resume';
 import Projects from './pages/Projects';
+import Contacts from './pages/Contacts';
 import { ThemeProvider } from './store/ThemeContext';
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           </Route>
           <Route path="/projects">
             <Projects />
+          </Route>
+          <Route path="/contacts">
+            <Contacts />
           </Route>
         </Switch>
       </Layout>

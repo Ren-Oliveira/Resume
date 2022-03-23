@@ -21,7 +21,7 @@ const Resume = () => {
             <CredentialsCard />
           </div>
           <div className="column is-one-third-desktop">
-            <ContactsCard />
+            {/* <ContactsCard /> */}
             <SkillCard />
           </div>
         </div>

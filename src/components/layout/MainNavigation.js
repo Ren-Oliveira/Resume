@@ -73,6 +73,9 @@ const MainNavigation = () => {
           <NavLink to="/projects" className={tabClass}>
             projects
           </NavLink>
+          <NavLink to="/contacts" className={tabClass}>
+            contacts
+          </NavLink>
           <div className={tabClass}>
             {darkTheme && (
               <Icon
