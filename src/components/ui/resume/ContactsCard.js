@@ -42,13 +42,13 @@ const ContactsCard = () => {
         </div>
       </div>
 
-      <div className="media">
+      {/* <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={darkTheme ? iconDark : iconLight} />
           <Icon icon={faMapMarker} className={icon} transform="shrink-8" />
         </div>
         <p className={darkTheme ? titleDark : titleLight}>Portugal, Braga</p>
-      </div>
+      </div> */}
 
       <div className="media">
         <div className={media}>
