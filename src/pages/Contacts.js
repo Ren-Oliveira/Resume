@@ -10,9 +10,6 @@ const Contacts = () => {
   const classDark = 'has-background-black-ter';
   const classLight = 'has-background-danger-light';
 
-  const textDark = 'has-text-danger-light has-text-centered p-2';
-  const textLight = 'has-text-success-dark has-text-centered p-2';
-
   return (
     <div className={darkTheme ? classDark : classLight}>
       <div className="hero is-fullheight">

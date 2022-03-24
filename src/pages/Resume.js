@@ -1,7 +1,7 @@
 import { useTheme } from '../store/ThemeContext';
 
 import CredentialsCard from '../components/ui/resume/CredentialsCard';
-import ContactsCard from '../components/ui/resume/ContactsCard';
+// import ContactsCard from '../components/ui/resume/ContactsCard';
 import SkillCard from '../components/ui/resume/SkillCard';
 import IntroCard from '../components/ui/resume/IntroCard';
 
