@@ -2,6 +2,7 @@ import { useTheme } from '../store/ThemeContext';
 
 import 'bulma/css/bulma.min.css';
 import ContactsCard from '../components/ui/resume/ContactsCard';
+import MessageMe from '../components/ui/contacts/MessageMe';
 
 const Contacts = () => {
   const darkTheme = useTheme();
@@ -20,7 +21,8 @@ const Contacts = () => {
             <div className="mt-5">
               <ContactsCard />
             </div>
-            <p className={darkTheme ? textDark : textLight}>Leave a message</p>
+
+            <MessageMe />
           </div>
         </div>
       </div>
