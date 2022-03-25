@@ -15,7 +15,7 @@ const MessageMe = () => {
   const textLight = ' has-text-success';
   const textDark = ' has-text-danger';
   const colorLight = ' is-success';
-  const colorDark = ' is-success';
+  const colorDark = ' is-danger';
   const title = 'subtitle has-text-centered has-text-weight-semibold';
   const titleLight = title + textLight;
   const titleDark = title + textDark;
@@ -54,7 +54,6 @@ const MessageMe = () => {
     <>
       <div className="field is-grouped is-grouped-centered mt-4">
         <button
-          id="modal-trigger"
           className={!theme ? btnLight : btnDark}
           data-target="modal-message"
           onClick={openModalHandler}
