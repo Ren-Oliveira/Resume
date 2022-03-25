@@ -1,7 +1,8 @@
-import { useTheme } from '../../../store/ThemeContext';
-// import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
-import 'bulma/css/bulma.min.css';
 import { useState } from 'react';
+import { useTheme } from '../../../store/ThemeContext';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faComment } from '@fortawesome/free-solid-svg-icons';
+import 'bulma/css/bulma.min.css';
 
 const MessageMe = () => {
   const [isMessageValid, setIsMessageValid] = useState(false);
@@ -14,18 +15,19 @@ const MessageMe = () => {
     if (isMessageValid) return;
   };
 
-  const btnLight = 'button is-success';
-  const btnDark = 'button is-danger';
-
-  const titleLight = 'subtitle has-text-centered has-text-success-dark';
-  const titleDark = 'subtitle has-text-centered has-text-danger-dark';
-
-  const inputLight = 'input mb-3 is-success';
-  const inputDark = 'input mb-3 is-danger';
-  const textAreaLight = 'textarea mb-3 is-success';
-  const textAreaDark = 'textarea mb-3 is-danger';
-  const formLight = 'control box m-6 has-background-danger-light';
-  const formDark = 'control box m-6 has-background-black-ter';
+  const textLight = ' has-text-success';
+  const textDark = ' has-text-danger';
+  const colorLight = ' is-success';
+  const colorDark = ' is-success';
+  const title = 'subtitle has-text-centered has-text-weight-semibold';
+  const titleLight = title + textLight;
+  const titleDark = title + textDark;
+  const btnLight = 'button' + colorLight;
+  const btnDark = 'button' + colorDark;
+  const inputLight = 'input mb-3' + colorLight;
+  const inputDark = 'input mb-3' + colorDark;
+  const textAreaLight = 'textarea mb-3' + colorLight;
+  const textAreaDark = 'textarea mb-3' + colorDark;
 
   document.addEventListener('DOMContentLoaded', () => {
     const modal = document.querySelector('#modal-message');
@@ -34,7 +36,7 @@ const MessageMe = () => {
     const openModal = () => modal.classList.add('is-active');
     const closeModal = () => modal.classList.remove('is-active');
 
-    openModalBtn.addEventListener('click', () => openModal(modal));
+    openModalBtn.addEventListener('click', openModal);
 
     (document.querySelectorAll('.modal-background, #closeModal') || []).forEach(
       $close => {
@@ -61,19 +63,25 @@ const MessageMe = () => {
           className={!theme ? btnLight : btnDark}
           data-target="modal-message"
         >
-          Message me
+          <span className="icon is-small">
+            <Icon icon={faComment} />
+          </span>
+          <span>Message me</span>
         </button>
       </div>
+
       <div id="modal-message" className="modal">
         <div className="modal-background"></div>
 
         <div className="modal-content">
           <form
-            className={!theme ? formLight : formDark}
+            className="control box m-6 has-background-danger-light"
             onSubmit={submitHandler}
             method="dialog"
           >
-            <div className={!theme ? titleLight : titleDark}> Message me</div>
+            <div className={!theme ? titleLight : titleDark}>
+              Leave a message
+            </div>
             <input
               type="text"
               className={!theme ? inputLight : inputDark}
@@ -86,17 +94,22 @@ const MessageMe = () => {
             />
             <textarea
               className={!theme ? textAreaLight : textAreaDark}
+              style={{ minHeight: '15%' }}
               rows="2"
               placeholder="Enter your message"
             />
 
-            <footer className="modal-card-foot">
-              <button type="submit" className={!theme ? btnLight : btnDark}>
-                Submit
-              </button>
-              <button id="closeModal" className="button">
-                Close
-              </button>
+            <footer className="field is-grouped is-grouped-centered">
+              <div className="control">
+                <button type="submit" className={!theme ? btnLight : btnDark}>
+                  Submit
+                </button>
+              </div>
+              <div className="control">
+                <button id="closeModal" className="button">
+                  Close
+                </button>
+              </div>
             </footer>
           </form>
         </div>
