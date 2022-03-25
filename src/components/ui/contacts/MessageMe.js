@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTheme } from '../../../store/ThemeContext';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
@@ -6,14 +6,11 @@ import 'bulma/css/bulma.min.css';
 
 const MessageMe = () => {
   const [isMessageValid, setIsMessageValid] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const modalRef = useRef();
 
   const theme = useTheme();
-
-  const submitHandler = e => {
-    e.preventDefault();
-    setIsMessageValid(true);
-    if (isMessageValid) return;
-  };
 
   const textLight = ' has-text-success';
   const textDark = ' has-text-danger';
@@ -29,39 +26,38 @@ const MessageMe = () => {
   const textAreaLight = 'textarea mb-3' + colorLight;
   const textAreaDark = 'textarea mb-3' + colorDark;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.querySelector('#modal-message');
-    const openModalBtn = document.querySelector('#modal-trigger');
+  const submitHandler = e => {
+    e.preventDefault();
+    setIsMessageValid(true);
+    if (isMessageValid) return;
+  };
 
-    const openModal = () => modal.classList.add('is-active');
-    const closeModal = () => modal.classList.remove('is-active');
+  const openModalHandler = () => {
+    setIsModalOpen(true);
+    modalRef.current.classList.add('is-active');
+  };
 
-    openModalBtn.addEventListener('click', openModal);
+  const closeModalHandler = () => {
+    if (!isModalOpen) return;
+    modalRef.current.classList.remove('is-active');
+    setIsModalOpen(false);
+  };
 
-    (document.querySelectorAll('.modal-background, #closeModal') || []).forEach(
-      $close => {
-        const $target = $close.closest('.modal');
-        $close.addEventListener('click', () => {
-          closeModal($target);
-        });
-      }
-    );
-
-    document.addEventListener('keydown', event => {
-      const e = event || window.event;
-      if (e.keyCode === 27) {
-        closeModal();
-      }
-    });
+  document.addEventListener('keydown', event => {
+    const e = event || window.event;
+    if (e.keyCode === 27) {
+      closeModalHandler();
+    }
   });
 
   return (
     <>
-      <div className="field is-grouped is-grouped-centered mt-6">
+      <div className="field is-grouped is-grouped-centered mt-4">
         <button
           id="modal-trigger"
           className={!theme ? btnLight : btnDark}
           data-target="modal-message"
+          onClick={openModalHandler}
         >
           <span className="icon is-small">
             <Icon icon={faComment} />
@@ -70,9 +66,8 @@ const MessageMe = () => {
         </button>
       </div>
 
-      <div id="modal-message" className="modal">
-        <div className="modal-background"></div>
-
+      <div className="modal" ref={modalRef}>
+        <div className="modal-background" />
         <div className="modal-content">
           <form
             className="control box m-6 has-background-danger-light"
@@ -106,7 +101,7 @@ const MessageMe = () => {
                 </button>
               </div>
               <div className="control">
-                <button id="closeModal" className="button">
+                <button className="button" onClick={closeModalHandler}>
                   Close
                 </button>
               </div>
