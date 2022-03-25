@@ -4,7 +4,7 @@ import {
   faCircle,
   faUser,
   faAt,
-  faMapMarker,
+  // faMapMarker,
 } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
