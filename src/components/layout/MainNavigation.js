@@ -7,21 +7,17 @@ import 'bulma/css/bulma.min.css';
 
 const MainNavigation = () => {
   const [isBurgerActive, setIsBurgerActive] = useState(false);
+  const darkTheme = useTheme();
+  const updateThemeHandler = useUpdateTheme();
 
   const toggleBurgerHandler = () => setIsBurgerActive(!isBurgerActive);
 
   const activeClass = 'is-active';
   const burgerClass = 'navbar-burger has-text-white';
   const menuClass = 'navbar-menu';
-
-  const darkTheme = useTheme();
-  const updateThemeHandler = useUpdateTheme();
-
   const tabClass = 'navbar-item is-size-6 has-text-weight-semibold';
-
   const navClassDark = `navbar has-background-danger-dark is-danger is-fixed-top`;
   const navClassLight = `navbar has-background-success is-success is-fixed-top`;
-
   const iconClassLight = 'fas has-text-success-light';
   const iconClassDark = 'fas has-text-danger-light';
 

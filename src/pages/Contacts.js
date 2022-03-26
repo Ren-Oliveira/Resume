@@ -14,12 +14,16 @@ const Contacts = () => {
     <div className={darkTheme ? classDark : classLight}>
       <div className="hero is-fullheight">
         <div className="hero-body">
-          <div className="container">
-            <div className="mt-5">
-              <ContactsCard />
-            </div>
+          <div className="container mt-5">
+            <div className="columns">
+              <div className="column is-half">
+                <ContactsCard />
+              </div>
 
-            <MessageMe />
+              <div className="column is-half">
+                <MessageMe />
+              </div>
+            </div>
           </div>
         </div>
       </div>
