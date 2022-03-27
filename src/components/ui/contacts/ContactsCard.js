@@ -36,7 +36,7 @@ const ContactsCard = () => {
           <Icon icon={faUser} className={icon} transform="shrink-5" />
         </div>
         <div className={darkTheme ? titleDark : titleLight}>
-          Renato Júnio Oliveira
+          <p className="mt-2">Renato Júnio Oliveira</p>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ const ContactsCard = () => {
           href="mailto:ren-jun-oliveira@gmail.com"
           className={darkTheme ? titleDark : titleLight}
         >
-          Ren.Jun.Oliveira@gmail.com
+          ren.jun.oliveira@gmail.com
         </a>
       </div>
 
@@ -63,8 +63,9 @@ const ContactsCard = () => {
           className={darkTheme ? titleDark : titleLight}
           target="_blank"
           rel="noreferrer"
+          title="Redirect to Github"
         >
-          Ren-Oliveira
+          / ren-oliveira
         </a>
       </div>
 
@@ -78,8 +79,9 @@ const ContactsCard = () => {
           className={darkTheme ? titleDark : titleLight}
           target="_blank"
           rel="noreferrer"
+          title="Redirect to Linkedin"
         >
-          Ren-Oliveira
+          / ren-oliveira
         </a>
       </div>
 
@@ -93,8 +95,9 @@ const ContactsCard = () => {
           className={darkTheme ? titleDark : titleLight}
           target="_blank"
           rel="noreferrer"
+          title="Redirect to Behance"
         >
-          Ren-Oliveira
+          / ren-oliveira
         </a>
       </div>
     </div>

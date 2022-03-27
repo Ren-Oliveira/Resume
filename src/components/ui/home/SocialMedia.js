@@ -9,8 +9,8 @@ import {
 const SocialMedia = () => {
   const theme = useTheme();
 
-  const iconDark = 'fas has-text-danger fa-2x m-2';
-  const iconLight = 'fas has-text-success fa-2x m-2';
+  const iconDark = 'fas has-text-danger fa-3x m-2';
+  const iconLight = 'fas has-text-success fa-3x m-2';
 
   return (
     <div>

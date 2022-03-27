@@ -42,7 +42,7 @@ const Home = () => {
         </div>
         <div className="hero-foot has-text-centered is-size-7">
           <SocialMedia />
-          <p className={darkTheme ? subtitleDark : subtitleLight}>
+          <p className={darkTheme ? titleDark : titleLight}>
             © 2022 by Renato Oliveira. All rights reserved.
           </p>
         </div>

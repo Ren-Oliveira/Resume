@@ -61,7 +61,7 @@ const MessageMe = () => {
           <span className="icon is-small">
             <Icon icon={faComment} />
           </span>
-          <span>Message me</span>
+          <span className="has-text-weight-semibold">Message me</span>
         </button>
       </div>
 

@@ -1,7 +1,7 @@
 import { useTheme } from '../store/ThemeContext';
 
 import 'bulma/css/bulma.min.css';
-import ContactsCard from '../components/ui/resume/ContactsCard';
+import ContactsCard from '../components/ui/contacts/ContactsCard';
 import MessageMe from '../components/ui/contacts/MessageMe';
 
 const Contacts = () => {
@@ -16,11 +16,8 @@ const Contacts = () => {
         <div className="hero-body">
           <div className="container mt-5">
             <div className="columns">
-              <div className="column is-half">
+              <div className="column is-one-third">
                 <ContactsCard />
-              </div>
-
-              <div className="column is-half">
                 <MessageMe />
               </div>
             </div>
