@@ -10,7 +10,7 @@ const ProjectCard = props => {
   const titleLight = 'has-text-success-dark';
 
   return (
-    <div class="column is-one-third">
+    <div className="column is-one-third">
       <div className={darkTheme ? classDark : classLight}>
         <div className="card-image">
           <a href={props.projectLink}>

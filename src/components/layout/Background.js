@@ -6,9 +6,9 @@ const Background = props => {
 
   return (
     <>
-      <div className={classes.children}>{props.children}</div>
-      <div className={!theme ? classes.areaLight : classes.areaDark}>
-        <ul className={classes.circles}>
+      <div className={!theme ? classes.bgLight : classes.bgDark}>
+        <div className={classes.children}>{props.children}</div>
+        <ul className={classes.shapes}>
           <li></li>
           <li></li>
           <li></li>
