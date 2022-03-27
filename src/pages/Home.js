@@ -1,12 +1,10 @@
 import { useTheme } from '../store/ThemeContext';
-import 'bulma/css/bulma.min.css';
 import SocialMedia from '../components/ui/home/SocialMedia';
+import 'bulma/css/bulma.min.css';
 
 const Home = () => {
   const darkTheme = useTheme();
 
-  const backgroundDark = 'has-background-black-ter';
-  const backgroundLight = 'has-background-success-light';
   const titleDark = 'has-text-danger-light';
   const titleLight = 'has-text-success-dark';
   const subtitleDark = 'has-text-danger';
@@ -24,7 +22,7 @@ const Home = () => {
   const greeting = ['Hello!', 'Welcome!', 'Hi!'];
 
   return (
-    <div className={darkTheme ? backgroundDark : backgroundLight}>
+    <div>
       <div className="hero is-fullheight">
         <div className="hero-body">
           <div className="container has-text-centered is-unselectable">
