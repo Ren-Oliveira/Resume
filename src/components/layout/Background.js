@@ -19,6 +19,8 @@ const Background = props => {
           <li></li>
           <li></li>
           <li></li>
+          <li></li>
+          <li></li>
         </ul>
       </div>
     </>
