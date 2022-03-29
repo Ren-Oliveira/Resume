@@ -9,6 +9,9 @@ const MessageMe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const modalRef = useRef();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const messageRef = useRef();
 
   const theme = useTheme();
 
@@ -80,16 +83,19 @@ const MessageMe = () => {
               type="text"
               className={!theme ? inputLight : inputDark}
               placeholder="Enter your name"
+              ref={nameRef}
             />
             <input
-              type="text"
+              type="email"
               className={!theme ? inputLight : inputDark}
               placeholder="Enter your email"
+              ref={emailRef}
             />
             <textarea
               className={!theme ? textAreaLight : textAreaDark}
               style={{ minHeight: '15%' }}
               rows="2"
+              ref={messageRef}
               placeholder="Enter your message"
             />
 
