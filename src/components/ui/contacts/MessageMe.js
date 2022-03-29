@@ -4,9 +4,16 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faComment } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
+/// REFINE CODE;
+/// sent to firebase
+
 const MessageMe = () => {
-  const [isMessageValid, setIsMessageValid] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isNameValid, setIsNameValid] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(false);
+  const [isMessageValid, setIsMessageValid] = useState(false);
+  const [message, setMessage] = useState({});
+  const [successSubmit, setSuccessSubmit] = useState(false);
 
   const modalRef = useRef();
   const nameRef = useRef();
@@ -31,8 +38,39 @@ const MessageMe = () => {
 
   const submitHandler = e => {
     e.preventDefault();
-    setIsMessageValid(true);
-    if (isMessageValid) return;
+    const enteredName = nameRef.current.value;
+    const enteredEmail = emailRef.current.value;
+    const enteredText = messageRef.current.value;
+
+    const mailRGX =
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    if (enteredName.trim().length >= 3) setIsNameValid(true);
+    if (enteredEmail.match(mailRGX)) setIsEmailValid(true);
+    if (enteredText.length >= 4) setIsMessageValid(true);
+
+    if (isEmailValid && isNameValid && isMessageValid)
+      setMessage({ email: enteredEmail, name: enteredName, text: enteredText });
+    console.log(message);
+    setSuccessSubmit(true);
+
+    setTimeout(() => {
+      setTimeout(() => {
+        setSuccessSubmit(false);
+      }, 700);
+      closeModalHandler();
+    }, 1500);
+
+    clearData();
+  };
+
+  const clearData = () => {
+    setIsEmailValid(false);
+    setIsMessageValid(false);
+    setIsNameValid(false);
+    nameRef.current.value = '';
+    emailRef.current.value = '';
+    messageRef.current.value = '';
+    setMessage({});
   };
 
   const openModalHandler = () => {
@@ -77,40 +115,51 @@ const MessageMe = () => {
             method="dialog"
           >
             <div className={!theme ? titleLight : titleDark}>
-              Leave a message
+              {successSubmit && 'Message sent!'}
+              {!successSubmit && 'Leave a message'}
             </div>
-            <input
-              type="text"
-              className={!theme ? inputLight : inputDark}
-              placeholder="Enter your name"
-              ref={nameRef}
-            />
-            <input
-              type="email"
-              className={!theme ? inputLight : inputDark}
-              placeholder="Enter your email"
-              ref={emailRef}
-            />
-            <textarea
-              className={!theme ? textAreaLight : textAreaDark}
-              style={{ minHeight: '15%' }}
-              rows="2"
-              ref={messageRef}
-              placeholder="Enter your message"
-            />
+            {!successSubmit && (
+              <>
+                <input
+                  type="text"
+                  className={!theme ? inputLight : inputDark}
+                  placeholder="Enter your name"
+                  ref={nameRef}
+                />
+                <input
+                  type="email"
+                  className={!theme ? inputLight : inputDark}
+                  placeholder="Enter your email"
+                  ref={emailRef}
+                />
+                <textarea
+                  className={!theme ? textAreaLight : textAreaDark}
+                  style={{ minHeight: '15%' }}
+                  rows="2"
+                  ref={messageRef}
+                  placeholder="Enter your message"
+                />
 
-            <footer className="field is-grouped is-grouped-centered">
-              <div className="control">
-                <button type="submit" className={!theme ? btnLight : btnDark}>
-                  Submit
-                </button>
-              </div>
-              <div className="control">
-                <button className="button" onClick={closeModalHandler}>
-                  Close
-                </button>
-              </div>
-            </footer>
+                <footer className="field is-grouped is-grouped-centered">
+                  <div className="control">
+                    <button
+                      type="submit"
+                      className={!theme ? btnLight : btnDark}
+                      // disabled={
+                      //   !isEmailValid && !isNameValid && !isMessageValid
+                      // }
+                    >
+                      Submit
+                    </button>
+                  </div>
+                  <div className="control">
+                    <button className="button" onClick={closeModalHandler}>
+                      Close
+                    </button>
+                  </div>
+                </footer>
+              </>
+            )}
           </form>
         </div>
       </div>
