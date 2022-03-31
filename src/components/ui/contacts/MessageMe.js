@@ -1,19 +1,21 @@
 import { useState, useRef } from 'react';
 import { useTheme } from '../../../store/ThemeContext';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
-import { faComment } from '@fortawesome/free-solid-svg-icons';
+import { faComment, faCheck } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
 /// REFINE CODE;
 /// sent to firebase
 
 const MessageMe = () => {
+  const [message, setMessage] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isNameValid, setIsNameValid] = useState(false);
   const [isEmailValid, setIsEmailValid] = useState(false);
   const [isMessageValid, setIsMessageValid] = useState(false);
-  const [message, setMessage] = useState({});
   const [successSubmit, setSuccessSubmit] = useState(false);
+  const [isIncomplete, setIsIncomplete] = useState(false);
+  const [isTouched, setIsTouched] = useState(false);
 
   const modalRef = useRef();
   const nameRef = useRef();
@@ -38,19 +40,11 @@ const MessageMe = () => {
 
   const submitHandler = e => {
     e.preventDefault();
-    const enteredName = nameRef.current.value;
-    const enteredEmail = emailRef.current.value;
-    const enteredText = messageRef.current.value;
+    if (!isEmailValid || !isNameValid || !isMessageValid) {
+      setIsIncomplete(true);
+      return;
+    }
 
-    const mailRGX =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-    if (enteredName.trim().length >= 3) setIsNameValid(true);
-    if (enteredEmail.match(mailRGX)) setIsEmailValid(true);
-    if (enteredText.length >= 4) setIsMessageValid(true);
-
-    if (isEmailValid && isNameValid && isMessageValid)
-      setMessage({ email: enteredEmail, name: enteredName, text: enteredText });
-    console.log(message);
     setSuccessSubmit(true);
 
     setTimeout(() => {
@@ -63,6 +57,39 @@ const MessageMe = () => {
     clearData();
   };
 
+  const validateNameHandler = () => {
+    setIsTouched(true);
+    const addedName = nameRef.current.value;
+    if (addedName.trim().length < 3) setIsNameValid(false);
+    if (addedName.trim().length >= 3) {
+      setIsNameValid(true);
+      setMessage({ ...message, name: addedName });
+    }
+  };
+
+  const validateMessageHandler = () => {
+    setIsTouched(true);
+    const addedText = messageRef.current.value;
+    if (addedText.trim().length < 5) setIsMessageValid(false);
+    if (addedText.trim().length > 4) {
+      setIsMessageValid(true);
+      setMessage({ ...message, text: addedText });
+    }
+  };
+
+  const validateEmailHandler = () => {
+    setIsTouched(true);
+    const addedEmail = emailRef.current.value;
+    const mailRGX = /^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$/;
+
+    if (!addedEmail.match(mailRGX));
+    setIsEmailValid(false);
+    if (addedEmail.match(mailRGX)) {
+      setIsEmailValid(true);
+      setMessage({ ...message, email: addedEmail });
+    }
+  };
+
   const clearData = () => {
     setIsEmailValid(false);
     setIsMessageValid(false);
@@ -71,6 +98,8 @@ const MessageMe = () => {
     emailRef.current.value = '';
     messageRef.current.value = '';
     setMessage({});
+    setIsTouched(false);
+    setIsIncomplete(false);
   };
 
   const openModalHandler = () => {
@@ -118,36 +147,58 @@ const MessageMe = () => {
               {successSubmit && 'Message sent!'}
               {!successSubmit && 'Leave a message'}
             </div>
+            {isTouched && isIncomplete && (
+              <>
+                <p className="subtitle is-size-6 has-text-centered has-text-info">
+                  Please fill in all fields correctly!
+                </p>
+              </>
+            )}
             {!successSubmit && (
               <>
-                <input
-                  type="text"
-                  className={!theme ? inputLight : inputDark}
-                  placeholder="Enter your name"
-                  ref={nameRef}
-                />
-                <input
-                  type="email"
-                  className={!theme ? inputLight : inputDark}
-                  placeholder="Enter your email"
-                  ref={emailRef}
-                />
-                <textarea
-                  className={!theme ? textAreaLight : textAreaDark}
-                  style={{ minHeight: '15%' }}
-                  rows="2"
-                  ref={messageRef}
-                  placeholder="Enter your message"
-                />
+                <div className="control has-icons-right">
+                  <input
+                    type="text"
+                    className={!theme ? inputLight : inputDark}
+                    placeholder="Enter your name"
+                    ref={nameRef}
+                    onChange={validateNameHandler}
+                  />
+                  <span className="icon is-small is-right">
+                    <Icon icon={isNameValid && faCheck} />
+                  </span>
+                </div>
+                <div className="control has-icons-right">
+                  <input
+                    type="email"
+                    className={!theme ? inputLight : inputDark}
+                    placeholder="Enter your email"
+                    ref={emailRef}
+                    onChange={validateEmailHandler}
+                  />
+                  <span className="icon is-small is-right">
+                    <Icon icon={isEmailValid && faCheck} />
+                  </span>
+                </div>
+                <div className="control has-icons-right">
+                  <textarea
+                    className={!theme ? textAreaLight : textAreaDark}
+                    style={{ minHeight: '15%' }}
+                    rows="2"
+                    ref={messageRef}
+                    placeholder="Enter your message"
+                    onChange={validateMessageHandler}
+                  />
+                  <span className="icon is-small is-right">
+                    <Icon icon={isMessageValid && faCheck} />
+                  </span>
+                </div>
 
                 <footer className="field is-grouped is-grouped-centered">
                   <div className="control">
                     <button
                       type="submit"
                       className={!theme ? btnLight : btnDark}
-                      // disabled={
-                      //   !isEmailValid && !isNameValid && !isMessageValid
-                      // }
                     >
                       Submit
                     </button>
