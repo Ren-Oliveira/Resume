@@ -46,20 +46,19 @@ const MessageMe = () => {
     }
 
     setSuccessSubmit(true);
-
     setTimeout(() => {
       setTimeout(() => {
         setSuccessSubmit(false);
       }, 700);
       closeModalHandler();
     }, 1500);
-
     clearData();
   };
 
   const validateNameHandler = () => {
     setIsTouched(true);
     const addedName = nameRef.current.value;
+    if (addedName.length === 0) setIsTouched(false);
     if (addedName.trim().length < 3) setIsNameValid(false);
     if (addedName.trim().length >= 3) {
       setIsNameValid(true);
@@ -78,12 +77,12 @@ const MessageMe = () => {
   };
 
   const validateEmailHandler = () => {
-    setIsTouched(true);
     const addedEmail = emailRef.current.value;
     const mailRGX = /^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$/;
 
     if (!addedEmail.match(mailRGX));
     setIsEmailValid(false);
+    setIsTouched(true);
     if (addedEmail.match(mailRGX)) {
       setIsEmailValid(true);
       setMessage({ ...message, email: addedEmail });
@@ -165,7 +164,7 @@ const MessageMe = () => {
                     onChange={validateNameHandler}
                   />
                   <span className="icon is-small is-right">
-                    <Icon icon={isNameValid && faCheck} />
+                    {isNameValid && <Icon icon={faCheck} />}
                   </span>
                 </div>
                 <div className="control has-icons-right">
@@ -177,7 +176,7 @@ const MessageMe = () => {
                     onChange={validateEmailHandler}
                   />
                   <span className="icon is-small is-right">
-                    <Icon icon={isEmailValid && faCheck} />
+                    {isEmailValid && <Icon icon={faCheck} />}
                   </span>
                 </div>
                 <div className="control has-icons-right">
@@ -190,7 +189,7 @@ const MessageMe = () => {
                     onChange={validateMessageHandler}
                   />
                   <span className="icon is-small is-right">
-                    <Icon icon={isMessageValid && faCheck} />
+                    {isMessageValid && <Icon icon={faCheck} />}
                   </span>
                 </div>
 
