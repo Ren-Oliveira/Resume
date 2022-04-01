@@ -4,8 +4,18 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faComment, faCheck } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
-/// REFINE CODE;
-/// sent to firebase
+const postMessage = async message => {
+  const res = await fetch(
+    'https://ren-oliveira-default-rtdb.europe-west1.firebasedatabase.app/messages.json',
+    {
+      method: 'POST',
+      body: JSON.stringify(message),
+      headers: { 'Content-Type': 'application/json' },
+    }
+  );
+  const data = await res.json();
+  console.log(data);
+};
 
 const MessageMe = () => {
   const [message, setMessage] = useState({});
@@ -40,10 +50,13 @@ const MessageMe = () => {
 
   const submitHandler = e => {
     e.preventDefault();
+
     if (!isEmailValid || !isNameValid || !isMessageValid) {
       setIsIncomplete(true);
       return;
     }
+
+    postMessage(message);
 
     setSuccessSubmit(true);
     setTimeout(() => {
