@@ -18,8 +18,9 @@ const MainNavigation = () => {
   const tabClass = 'navbar-item is-size-6 has-text-weight-semibold';
   const navClassDark = `navbar has-background-danger-dark is-danger is-fixed-top`;
   const navClassLight = `navbar has-background-success is-success is-fixed-top`;
-  const iconClassLight = 'fas has-text-success-light';
-  const iconClassDark = 'fas has-text-danger-light';
+
+  const iconClassLight = 'fas has-text-success-light mr-4';
+  const iconClassDark = 'fas has-text-danger-light mr-4';
 
   return (
     <nav

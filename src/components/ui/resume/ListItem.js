@@ -1,25 +1,25 @@
 import 'bulma/css/bulma.min.css';
-import { Fragment } from 'react';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 const Item = props => {
   const theme = props.theme;
 
-  const classTitleDark =
-    'has-text-danger-light is-marginless has-text-weight-medium is-size-5 is-clickable';
-  const classTitleLight =
-    'has-text-success-dark is-marginless has-text-weight-medium is-size-5 is-clickable';
+  const textDark = 'has-text-danger';
+  const textLight = 'has-text-success';
+  const title = 'is-marginless has-text-weight-medium is-size-5 is-clickable ';
+  const detail = 'has-text-weight-semibold is-size-6 ';
+  const icon = 'fas pr-2 ';
 
-  const classDetailDark = 'has-text-danger has-text-weight-semibold is-size-6';
-  const classDetailLight =
-    'has-text-success has-text-weight-semibold is-size-6';
-
-  const iconDark = 'fas has-text-danger-dark pr-2';
-  const iconLight = 'fas has-text-success pr-2';
+  const classTitleDark = title + textDark + '-light';
+  const classTitleLight = title + textLight + '-dark';
+  const classDetailDark = detail + textDark;
+  const classDetailLight = detail + textLight;
+  const iconDark = icon + textDark;
+  const iconLight = icon + textLight;
 
   return (
-    <Fragment>
+    <>
       <div className="media">
         <div className="media-content">
           <details>
@@ -54,11 +54,11 @@ const Item = props => {
                 </div>
               </div>
             </summary>
-            <p className="has-text-justified mb-5">{props.description}</p>
+            <p className="has-text-justified">{props.description}</p>
           </details>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 

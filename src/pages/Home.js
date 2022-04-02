@@ -5,10 +5,10 @@ import 'bulma/css/bulma.min.css';
 const Home = () => {
   const darkTheme = useTheme();
 
-  const titleDark = 'has-text-danger-light';
-  const titleLight = 'has-text-success-dark';
-  const subtitleDark = 'has-text-danger';
-  const subtitleLight = 'has-text-success';
+  const titleDark = 'has-text-danger-light is-unselectable';
+  const titleLight = 'has-text-success-dark is-unselectable';
+  const subtitleDark = 'has-text-danger is-unselectable';
+  const subtitleLight = 'has-text-success is-unselectable';
 
   const randomNum = function () {
     return ~~(Math.random() * 3);

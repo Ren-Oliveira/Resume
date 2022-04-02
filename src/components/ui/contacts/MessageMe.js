@@ -35,7 +35,7 @@ const MessageMe = () => {
   const theme = useTheme();
 
   const textLight = ' has-text-success';
-  const textDark = ' has-text-danger';
+  const textDark = ' has-text-danger-dark';
   const colorLight = ' is-success';
   const colorDark = ' is-danger';
   const title = 'subtitle has-text-centered has-text-weight-semibold';
@@ -70,6 +70,7 @@ const MessageMe = () => {
 
   const validateNameHandler = () => {
     setIsTouched(true);
+    setIsIncomplete(false);
     const addedName = nameRef.current.value;
     if (addedName.length === 0) setIsTouched(false);
     if (addedName.trim().length < 3) setIsNameValid(false);
@@ -81,6 +82,7 @@ const MessageMe = () => {
 
   const validateMessageHandler = () => {
     setIsTouched(true);
+    setIsIncomplete(false);
     const addedText = messageRef.current.value;
     if (addedText.trim().length < 5) setIsMessageValid(false);
     if (addedText.trim().length > 4) {
@@ -90,12 +92,14 @@ const MessageMe = () => {
   };
 
   const validateEmailHandler = () => {
+    setIsIncomplete(false);
     const addedEmail = emailRef.current.value;
     const mailRGX = /^[a-zA-Z0-9_!#$%&’*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$/;
 
     if (!addedEmail.match(mailRGX));
     setIsEmailValid(false);
     setIsTouched(true);
+
     if (addedEmail.match(mailRGX)) {
       setIsEmailValid(true);
       setMessage({ ...message, email: addedEmail });

@@ -1,11 +1,6 @@
 import { useTheme } from '../../../store/ThemeContext';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
-import {
-  faCircle,
-  faUser,
-  faAt,
-  // faMapMarker,
-} from '@fortawesome/free-solid-svg-icons';
+import { faCircle, faUser, faAt } from '@fortawesome/free-solid-svg-icons';
 import {
   faGithub,
   faLinkedin,
@@ -15,13 +10,14 @@ import 'bulma/css/bulma.min.css';
 
 const ContactsCard = () => {
   const darkTheme = useTheme();
-  const boxDark = 'box content has-background-dark has-text-danger-dark';
+
+  const boxDark = 'box content has-background-dark has-text-danger';
   const boxLight = 'box content has-background-light has-text-success';
   const titleClass =
-    'is-marginless has-text-weight-medium subtitle is-clickable has-text-centered';
+    'is-marginless has-text-weight-regular subtitle is-clickable has-text-centered';
   const titleDark = titleClass + ' has-text-danger-light';
   const titleLight = titleClass + ' has-text-success-dark';
-  const iconDark = 'fas has-text-danger-dark';
+  const iconDark = 'fas has-text-danger';
   const iconLight = 'fas has-text-success';
   const icon = 'fas has-text-white';
   const media = 'media-left icon is-medium fa-layers fa-fw fa-2x';
