@@ -5,7 +5,7 @@ import { faComment, faCheck } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
 const postMessage = async message => {
-  const res = await fetch(
+  await fetch(
     'https://ren-oliveira-default-rtdb.europe-west1.firebasedatabase.app/messages.json',
     {
       method: 'POST',
@@ -13,8 +13,6 @@ const postMessage = async message => {
       headers: { 'Content-Type': 'application/json' },
     }
   );
-  const data = await res.json();
-  console.log(data);
 };
 
 const MessageMe = () => {
@@ -50,15 +48,14 @@ const MessageMe = () => {
 
   const submitHandler = e => {
     e.preventDefault();
-
     if (!isEmailValid || !isNameValid || !isMessageValid) {
       setIsIncomplete(true);
       return;
     }
-
     postMessage(message);
 
     setSuccessSubmit(true);
+
     setTimeout(() => {
       setTimeout(() => {
         setSuccessSubmit(false);

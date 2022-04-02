@@ -9,7 +9,7 @@ const SkillItem = skill => {
 
   return (
     <>
-      <h4 className="subtitle mb-5">
+      <h4 className="subtitle mb-4">
         <span className={darkTheme ? classTitleDark : classTitleLight}>
           {skill.name}
         </span>

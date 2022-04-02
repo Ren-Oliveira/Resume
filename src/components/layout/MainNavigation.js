@@ -16,9 +16,10 @@ const MainNavigation = () => {
   const burgerClass = 'navbar-burger has-text-white';
   const menuClass = 'navbar-menu';
   const tabClass = 'navbar-item is-size-6 has-text-weight-semibold';
+  const burgerTextClass =
+    'navbar-item is-size-4 has-text-white has-text-weight-medium mr-5 has-text-centered';
   const navClassDark = `navbar has-background-danger-dark is-danger is-fixed-top`;
   const navClassLight = `navbar has-background-success is-success is-fixed-top`;
-
   const iconClassLight = 'fas has-text-success-light mr-4';
   const iconClassDark = 'fas has-text-danger-light mr-4';
 
@@ -61,19 +62,31 @@ const MainNavigation = () => {
             }
           }}
         >
-          <NavLink to="/home" className={tabClass}>
+          <NavLink
+            to="/home"
+            className={isBurgerActive ? burgerTextClass : tabClass}
+          >
             home
           </NavLink>
-          <NavLink to="/resume" className={tabClass}>
+          <NavLink
+            to="/resume"
+            className={isBurgerActive ? burgerTextClass : tabClass}
+          >
             resume
           </NavLink>
-          <NavLink to="/projects" className={tabClass}>
+          <NavLink
+            to="/projects"
+            className={isBurgerActive ? burgerTextClass : tabClass}
+          >
             projects
           </NavLink>
-          <NavLink to="/contacts" className={tabClass}>
+          <NavLink
+            to="/contacts"
+            className={isBurgerActive ? burgerTextClass : tabClass}
+          >
             contacts
           </NavLink>
-          <div className={tabClass}>
+          <div className={isBurgerActive ? burgerTextClass : tabClass}>
             {darkTheme && (
               <Icon
                 icon={faSun}
