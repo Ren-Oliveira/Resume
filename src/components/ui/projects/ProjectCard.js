@@ -9,6 +9,8 @@ const ProjectCard = props => {
   const titleDark = 'has-text-danger-light';
   const titleLight = 'has-text-success-dark';
 
+  const ternaryTitle = darkTheme ? titleDark : titleLight;
+
   return (
     <div className="column is-one-third">
       <div className={darkTheme ? classDark : classLight}>
@@ -24,24 +26,17 @@ const ProjectCard = props => {
           <div className="media">
             <div className="media-content">
               <p className="title is-size-4">
-                <span className={darkTheme ? titleDark : titleLight}>
-                  {props.projectName}
-                </span>
+                <span className={ternaryTitle}>{props.projectName}</span>
               </p>
               <p className="subtitle">
-                <a
-                  href={props.projectLink}
-                  className={darkTheme ? titleDark : titleLight}
-                >
+                <a href={props.projectLink} className={ternaryTitle}>
                   {props.projectLink.replace(/^https?:\/\//, '')}
                 </a>
               </p>
             </div>
           </div>
           <div className="content is-size-6 has-text-justified">
-            <p className={darkTheme ? titleDark : titleLight}>
-              {props.projectDescription}
-            </p>
+            <p className={ternaryTitle}>{props.projectDescription}</p>
           </div>
         </div>
       </div>

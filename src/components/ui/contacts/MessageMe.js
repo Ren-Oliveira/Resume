@@ -152,7 +152,7 @@ const MessageMe = () => {
         <div className="modal-background" />
         <div className="modal-content">
           <form
-            className="control box m-6 has-background-danger-light"
+            className="control box m-6 has-background-white-ter"
             onSubmit={submitHandler}
             method="dialog"
           >
@@ -162,8 +162,8 @@ const MessageMe = () => {
             </div>
             {isTouched && isIncomplete && (
               <>
-                <p className="subtitle is-size-6 has-text-centered has-text-info">
-                  Please fill in all fields correctly!
+                <p className="subtitle is-size-6 has-text-centered has-text-info-dark">
+                  <strong> Please fill in all fields correctly!</strong>
                 </p>
               </>
             )}

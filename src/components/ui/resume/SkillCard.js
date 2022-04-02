@@ -10,10 +10,13 @@ const SkillCard = () => {
   const [processedData, setProcessedData] = useState(null);
 
   const darkTheme = useTheme();
-  const classDark = 'box content has-background-dark has-text-danger-light';
-  const classLight = 'box content has-background-light has-text-success-dark';
-  const classTitleDark = 'subtitle has-text-centered has-text-danger-light';
-  const classTitleLight = 'subtitle has-text-centered has-text-success-dark';
+
+  const bgDark = 'box content has-background-dark has-text-danger-light';
+  const bgLight = 'box content has-background-light has-text-success-dark';
+  const TitleDark = 'subtitle has-text-centered has-text-danger-light';
+  const TitleLight = 'subtitle has-text-centered has-text-success-dark';
+  const ternaryBg = darkTheme ? bgDark : bgLight;
+  const ternaryTitle = darkTheme ? TitleDark : TitleLight;
 
   const getData = useCallback(async () => {
     const res = await fetch(
@@ -38,10 +41,8 @@ const SkillCard = () => {
       }
       const types = [...new Set(fetchedSkills.map(skill => skill.type))].sort();
       const Skills = types.map((type, key) => (
-        <div className={darkTheme ? classDark : classLight} key={key}>
-          <h3 className={darkTheme ? classTitleDark : classTitleLight}>
-            {type}
-          </h3>
+        <div className={ternaryBg} key={key}>
+          <h3 className={ternaryTitle}>{type}</h3>
           {fetchedSkills.map(skill =>
             skill.type === type ? (
               <SkillItem

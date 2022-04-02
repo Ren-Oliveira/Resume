@@ -11,42 +11,40 @@ const Item = props => {
   const detail = 'has-text-weight-semibold is-size-6 ';
   const icon = 'fas pr-2 ';
 
-  const classTitleDark = title + textDark + '-light';
-  const classTitleLight = title + textLight + '-dark';
-  const classDetailDark = detail + textDark;
-  const classDetailLight = detail + textLight;
+  const titleDark = title + textDark + '-light';
+  const titleLight = title + textLight + '-dark';
+  const detailDark = detail + textDark;
+  const detailLight = detail + textLight;
   const iconDark = icon + textDark;
   const iconLight = icon + textLight;
+
+  const ternaryTitle = theme ? titleDark : titleLight;
+  const ternaryDetail = theme ? detailDark : detailLight;
+  const ternaryIcon = theme ? iconDark : iconLight;
 
   return (
     <>
       <div className="media">
         <div className="media-content">
           <details>
-            <summary
-              className={theme ? classTitleDark : classTitleLight}
-              title="Click here to learn more"
-            >
+            <summary className={ternaryTitle} title="Click here to learn more">
               {props.name}
 
               <div className="level mt-1">
                 <span className="level-left">
-                  <span className={theme ? classDetailDark : classDetailLight}>
+                  <span className={ternaryDetail}>
                     <a
                       href={props.link}
                       target="_blank"
                       rel="noreferrer"
                       title="Redirect to this page"
                     >
-                      <Icon
-                        icon={faExternalLinkAlt}
-                        className={theme ? iconDark : iconLight}
-                      />
+                      <Icon icon={faExternalLinkAlt} className={ternaryIcon} />
                     </a>
                     {props.location}
                   </span>
                 </span>
-                <div className={theme ? classDetailDark : classDetailLight}>
+                <div className={ternaryDetail}>
                   <time dateTime={props.dateStart}> {props.dateStart}</time>
                   <time dateTime={props.dateEnd}>
                     &nbsp;&#8594; {props.dateEnd}

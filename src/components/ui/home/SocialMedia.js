@@ -9,8 +9,9 @@ import {
 const SocialMedia = () => {
   const theme = useTheme();
 
-  const iconDark = 'fas has-text-danger fa-3x m-2';
-  const iconLight = 'fas has-text-success fa-3x m-2';
+  const iconDark = 'fas has-text-danger fa-2x m-2';
+  const iconLight = 'fas has-text-success fa-2x m-2';
+  const ternaryIcon = theme ? iconDark : iconLight;
 
   return (
     <div>
@@ -19,7 +20,7 @@ const SocialMedia = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <Icon icon={faGithubSquare} className={theme ? iconDark : iconLight} />
+        <Icon icon={faGithubSquare} className={ternaryIcon} />
       </a>
 
       <a
@@ -27,7 +28,7 @@ const SocialMedia = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <Icon icon={faLinkedin} className={theme ? iconDark : iconLight} />
+        <Icon icon={faLinkedin} className={ternaryIcon} />
       </a>
 
       <a
@@ -35,7 +36,7 @@ const SocialMedia = () => {
         target="_blank"
         rel="noreferrer"
       >
-        <Icon icon={faBehanceSquare} className={theme ? iconDark : iconLight} />
+        <Icon icon={faBehanceSquare} className={ternaryIcon} />
       </a>
     </div>
   );
