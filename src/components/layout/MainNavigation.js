@@ -12,20 +12,30 @@ const MainNavigation = () => {
 
   const toggleBurgerHandler = () => setIsBurgerActive(!isBurgerActive);
 
-  const activeClass = 'is-active';
-  const burgerClass = 'navbar-burger has-text-white';
-  const menuClass = 'navbar-menu';
-  const tabClass = 'navbar-item is-size-6 has-text-weight-semibold';
-  const burgerTextClass =
-    'navbar-item is-size-4 has-text-white has-text-weight-medium mr-5 has-text-centered';
-  const navClassDark = `navbar has-background-danger-dark is-danger is-fixed-top`;
-  const navClassLight = `navbar has-background-success is-success is-fixed-top`;
+  const active = 'is-active';
+  const menu = 'navbar-menu has-text-white ';
+  const menuClass_active = active + menu;
+  const bgDark = ' has-background-danger-dark ';
+  const bgLight = ' has-background-success ';
+  const tabClass = 'navbar-item has-text-white ';
+  const tabClass_full = tabClass + 'is-size-6 has-text-weight-semibold';
+  const tabClass_burger = tabClass + 'is-size-4 has-text-centered';
+  const navClassDark = 'navbar is-danger is-fixed-top ' + bgDark;
+  const navClassLight = 'navbar is-success is-fixed-top ' + bgLight;
   const iconClassLight = 'fas has-text-success-light mr-4';
   const iconClassDark = 'fas has-text-danger-light mr-4';
 
+  const ternaryBg = darkTheme ? bgDark : bgLight;
+  const ternaryTheme = darkTheme ? navClassDark : navClassLight;
+  const ternaryBurgerClass = isBurgerActive
+    ? ternaryBg + tabClass_burger
+    : ternaryBg + tabClass_full;
+  const ternaryBurgerActive = isBurgerActive ? menuClass_active : menu;
+
   return (
     <nav
-      className={darkTheme ? navClassDark : navClassLight}
+      id="nav"
+      className={ternaryTheme}
       role="navigation"
       aria-label="Navigation"
       onClick={() => {
@@ -33,11 +43,10 @@ const MainNavigation = () => {
           setIsBurgerActive(!isBurgerActive);
         }
       }}
-      id="nav"
     >
       <div className="navbar-brand">
         <div
-          className={isBurgerActive ? [burgerClass, activeClass] : burgerClass}
+          className="navbar-burger"
           data-target="navbar"
           role="button"
           onClick={toggleBurgerHandler}
@@ -48,10 +57,7 @@ const MainNavigation = () => {
         </div>
       </div>
 
-      <div
-        className={isBurgerActive ? [menuClass, activeClass] : menuClass}
-        id="navbar"
-      >
+      <div className={ternaryBurgerActive} id="navbar">
         <div
           className={
             isBurgerActive ? 'navbar-end has-text-right' : 'navbar-end'
@@ -62,31 +68,19 @@ const MainNavigation = () => {
             }
           }}
         >
-          <NavLink
-            to="/home"
-            className={isBurgerActive ? burgerTextClass : tabClass}
-          >
+          <NavLink to="/home" className={ternaryBurgerClass}>
             home
           </NavLink>
-          <NavLink
-            to="/resume"
-            className={isBurgerActive ? burgerTextClass : tabClass}
-          >
+          <NavLink to="/resume" className={ternaryBurgerClass}>
             resume
           </NavLink>
-          <NavLink
-            to="/projects"
-            className={isBurgerActive ? burgerTextClass : tabClass}
-          >
+          <NavLink to="/projects" className={ternaryBurgerClass}>
             projects
           </NavLink>
-          <NavLink
-            to="/contacts"
-            className={isBurgerActive ? burgerTextClass : tabClass}
-          >
+          <NavLink to="/contacts" className={ternaryBurgerClass}>
             contacts
           </NavLink>
-          <div className={isBurgerActive ? burgerTextClass : tabClass}>
+          <div className={ternaryBurgerClass}>
             {darkTheme && (
               <Icon
                 icon={faSun}
