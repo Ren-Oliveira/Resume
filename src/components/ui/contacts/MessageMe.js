@@ -4,15 +4,25 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faComment, faCheck } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
-const postMessage = async message => {
-  await fetch(
-    'https://ren-oliveira-default-rtdb.europe-west1.firebasedatabase.app/messages.json',
-    {
-      method: 'POST',
-      body: JSON.stringify(message),
-      headers: { 'Content-Type': 'application/json' },
-    }
-  );
+import emailjs from '@emailjs/browser';
+
+const sendEmail = e => {
+  emailjs
+    .sendForm(
+      'service_s92284g',
+      'template_98n95ul',
+      e.target,
+      'jfhtJUermqd7n8AC3'
+    )
+    .then(
+      result => {
+        console.log(result.text);
+      },
+      error => {
+        console.log(error.text);
+      }
+    );
+  e.target.reset();
 };
 
 const MessageMe = () => {
@@ -52,7 +62,7 @@ const MessageMe = () => {
       setIsIncomplete(true);
       return;
     }
-    postMessage(message);
+    sendEmail(e);
 
     setSuccessSubmit(true);
 
@@ -176,6 +186,7 @@ const MessageMe = () => {
                     placeholder="Enter your name"
                     ref={nameRef}
                     onChange={validateNameHandler}
+                    name="name"
                   />
                   <span className="icon is-small is-right">
                     {isNameValid && <Icon icon={faCheck} />}
@@ -188,6 +199,7 @@ const MessageMe = () => {
                     placeholder="Enter your email"
                     ref={emailRef}
                     onChange={validateEmailHandler}
+                    name="email"
                   />
                   <span className="icon is-small is-right">
                     {isEmailValid && <Icon icon={faCheck} />}
@@ -201,6 +213,7 @@ const MessageMe = () => {
                     ref={messageRef}
                     placeholder="Enter your message"
                     onChange={validateMessageHandler}
+                    name="message"
                   />
                   <span className="icon is-small is-right">
                     {isMessageValid && <Icon icon={faCheck} />}
