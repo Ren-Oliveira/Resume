@@ -6,6 +6,14 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
 const MainNavigation = () => {
+  // const history = useHistory();
+  // window.addEventListener('keydown', e => {
+  //   const pages = ['/home', '/resume', '/projects', '/contacts'];
+  //   const curPage = pages.indexOf(history.location.pathname);
+  //   if (e.code === 'ArrowRight') history.push(`${pages[curPage + 1]}`);
+  //   if (e.code === 'ArrowLeft') history.push(`${pages[curPage - 1]}`);
+  // });
+
   const [isBurgerActive, setIsBurgerActive] = useState(false);
   const darkTheme = useTheme();
   const updateThemeHandler = useUpdateTheme();

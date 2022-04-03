@@ -1,12 +1,13 @@
 import { useTheme } from '../../../store/ThemeContext';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faCircle, faUser, faAt } from '@fortawesome/free-solid-svg-icons';
-import {
-  faGithub,
-  faLinkedin,
-  faBehanceSquare,
-} from '@fortawesome/free-brands-svg-icons';
+// import {
+//   faGithub,
+//   faLinkedin,
+//   faBehanceSquare,
+// } from '@fortawesome/free-brands-svg-icons';
 import 'bulma/css/bulma.min.css';
+import SocialMedia from '../home/SocialMedia';
 
 const ContactsCard = () => {
   const darkTheme = useTheme();
@@ -49,7 +50,11 @@ const ContactsCard = () => {
           ren.jun.oliveira@gmail.com
         </a>
       </div>
-
+      <div className="media" />
+      <div className="has-text-centered">
+        <SocialMedia />
+      </div>
+      {/* 
       <div className="media">
         <div className={media}>
           <Icon icon={faCircle} className={ternaryIcon} />
@@ -62,7 +67,7 @@ const ContactsCard = () => {
           rel="noreferrer"
           title="Redirect to Github"
         >
-          / ren-oliveira
+          /ren-oliveira
         </a>
       </div>
 
@@ -78,7 +83,7 @@ const ContactsCard = () => {
           rel="noreferrer"
           title="Redirect to Linkedin"
         >
-          / ren-oliveira
+          /ren-oliveira
         </a>
       </div>
 
@@ -94,9 +99,9 @@ const ContactsCard = () => {
           rel="noreferrer"
           title="Redirect to Behance"
         >
-          / ren-oliveira
+          /ren-oliveira
         </a>
-      </div>
+      </div> */}
     </div>
   );
 };

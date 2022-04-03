@@ -57,7 +57,7 @@ const SkillCard = () => {
       ));
       setProcessedData(Skills);
     }
-  }, [darkTheme, data, getData, loading]);
+  }, [darkTheme, data, getData, loading, ternaryBg, ternaryTitle]);
 
   return (
     <>

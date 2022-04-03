@@ -1,6 +1,6 @@
-import 'bulma/css/bulma.min.css';
 import ContactsCard from '../components/ui/contacts/ContactsCard';
 import MessageMe from '../components/ui/contacts/MessageMe';
+import 'bulma/css/bulma.min.css';
 
 const Contacts = () => {
   return (
