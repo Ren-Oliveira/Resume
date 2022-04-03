@@ -9,11 +9,7 @@ const ProjectCard = props => {
   const titleDark = 'has-text-danger-light';
   const titleLight = 'has-text-success-dark';
 
-  const subtitle = ' subtitle has-text-centered is-size-6';
   const ternaryTitle = darkTheme ? titleDark : titleLight;
-  const ternarySubtitle = darkTheme
-    ? titleDark + subtitle
-    : titleLight + subtitle;
 
   return (
     <div className="column is-one-third">
@@ -25,12 +21,14 @@ const ProjectCard = props => {
             rel="noreferrer"
             title="Redirect to this page"
           >
-            <figure className="image is-2by1">
+            <figure
+              className="image is-2by1"
+              style={{
+                borderBottom: '3px solid #222',
+              }}
+            >
               <img src={props.projectImg} alt="{props.projectImgAlt}" />
             </figure>
-            <p className={ternarySubtitle}>
-              {props.projectLink.replace(/^https?:\/\//, '')}
-            </p>
           </a>
         </div>
 
@@ -48,7 +46,7 @@ const ProjectCard = props => {
                     </span>
                   </span>
                 </summary>
-                <div className="content is-size-6 has-text-justified">
+                <div className="content is-size-7 has-text-justified mt-2">
                   <p className={ternaryTitle}>{props.projectDescription}</p>
                 </div>
               </details>
