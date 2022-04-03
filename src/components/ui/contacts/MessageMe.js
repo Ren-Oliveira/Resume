@@ -58,10 +58,12 @@ const MessageMe = () => {
 
   const submitHandler = e => {
     e.preventDefault();
+
     if (!isEmailValid || !isNameValid || !isMessageValid) {
       setIsIncomplete(true);
       return;
     }
+
     sendEmail(e);
 
     setSuccessSubmit(true);
@@ -72,6 +74,7 @@ const MessageMe = () => {
       }, 700);
       closeModalHandler();
     }, 1500);
+
     clearData();
   };
 
@@ -114,15 +117,15 @@ const MessageMe = () => {
   };
 
   const clearData = () => {
-    setIsEmailValid(false);
-    setIsMessageValid(false);
-    setIsNameValid(false);
-    nameRef.current.value = '';
-    emailRef.current.value = '';
     messageRef.current.value = '';
-    setMessage({});
-    setIsTouched(false);
+    emailRef.current.value = '';
+    nameRef.current.value = '';
+    setIsMessageValid(false);
+    setIsEmailValid(false);
     setIsIncomplete(false);
+    setIsNameValid(false);
+    setIsTouched(false);
+    setMessage({});
   };
 
   const openModalHandler = () => {
@@ -138,9 +141,7 @@ const MessageMe = () => {
 
   document.addEventListener('keydown', event => {
     const e = event || window.event;
-    if (e.keyCode === 27) {
-      closeModalHandler();
-    }
+    if (e.keyCode === 27) closeModalHandler();
   });
 
   return (
@@ -159,7 +160,7 @@ const MessageMe = () => {
       </div>
 
       <div className="modal" ref={modalRef}>
-        <div className="modal-background" />
+        <div className="modal-background" onClick={closeModalHandler} />
         <div className="modal-content">
           <form
             className="control box m-6 has-background-white-ter"
@@ -177,6 +178,7 @@ const MessageMe = () => {
                 </p>
               </>
             )}
+
             {!successSubmit && (
               <>
                 <div className="control has-icons-right">
@@ -205,6 +207,7 @@ const MessageMe = () => {
                     {isEmailValid && <Icon icon={faCheck} />}
                   </span>
                 </div>
+
                 <div className="control has-icons-right">
                   <textarea
                     className={!theme ? textAreaLight : textAreaDark}
