@@ -1,27 +1,18 @@
+import emailjs from '@emailjs/browser';
 import { useState, useRef } from 'react';
 import { useTheme } from '../../../store/ThemeContext';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faComment, faCheck } from '@fortawesome/free-solid-svg-icons';
 import 'bulma/css/bulma.min.css';
 
-import emailjs from '@emailjs/browser';
-
 const sendEmail = e => {
-  emailjs
-    .sendForm(
-      'service_s92284g',
-      'template_98n95ul',
-      e.target,
-      'jfhtJUermqd7n8AC3'
-    )
-    .then(
-      result => {
-        console.log(result.text);
-      },
-      error => {
-        console.log(error.text);
-      }
-    );
+  emailjs.sendForm(
+    'service_s92284g',
+    'template_98n95ul',
+    e.target,
+    'jfhtJUermqd7n8AC3'
+  );
+
   e.target.reset();
 };
 
@@ -49,32 +40,30 @@ const MessageMe = () => {
   const title = 'subtitle has-text-centered has-text-weight-semibold';
   const titleLight = title + textLight;
   const titleDark = title + textDark;
-  const btnLight = 'button' + colorLight;
-  const btnDark = 'button' + colorDark;
+  const btnLight = 'button ' + colorLight;
+  const btnDark = 'button has-text-dark' + colorDark;
   const inputLight = 'input mb-3' + colorLight;
   const inputDark = 'input mb-3' + colorDark;
   const textAreaLight = 'textarea mb-3' + colorLight;
   const textAreaDark = 'textarea mb-3' + colorDark;
 
+  const ternaryIcon = theme ? 'fas has-text-dark' : 'fas has-text-white';
+
   const submitHandler = e => {
     e.preventDefault();
-
     if (!isEmailValid || !isNameValid || !isMessageValid) {
       setIsIncomplete(true);
       return;
     }
 
     sendEmail(e);
-
     setSuccessSubmit(true);
-
     setTimeout(() => {
       setTimeout(() => {
         setSuccessSubmit(false);
       }, 700);
       closeModalHandler();
     }, 1500);
-
     clearData();
   };
 
@@ -153,7 +142,7 @@ const MessageMe = () => {
           onClick={openModalHandler}
         >
           <span className="icon is-small">
-            <Icon icon={faComment} />
+            <Icon icon={faComment} className={ternaryIcon} />
           </span>
           <span className="has-text-weight-semibold">Message me</span>
         </button>
