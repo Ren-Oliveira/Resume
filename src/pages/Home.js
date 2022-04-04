@@ -25,26 +25,22 @@ const Home = () => {
   const greeting = ['Hello!', 'Welcome!', 'Hi!'];
 
   return (
-    <div>
-      <div className="hero is-fullheight">
-        <div className="hero-body">
-          <div className="container has-text-centered is-unselectable">
-            <div className="title is-size-1 has-text-weight-bold">
-              <p className={ternaryTitle}>
-                {greeting[randomNum()]} I'm Renato.
-              </p>
-            </div>
-            <div className="subtitle is-size-3 has-text-weight-semibold">
-              <p className={ternarySubtitle}>{message[randomNum()]}</p>
-            </div>
+    <div className="hero is-fullheight">
+      <div className="hero-body">
+        <div className="container has-text-centered is-unselectable">
+          <div className="title is-size-1 has-text-weight-bold">
+            <p className={ternaryTitle}>{greeting[randomNum()]} I'm Renato.</p>
+          </div>
+          <div className="subtitle is-size-3 has-text-weight-semibold">
+            <p className={ternarySubtitle}>{message[randomNum()]}</p>
           </div>
         </div>
-        <div className="hero-foot has-text-centered is-size-7">
-          <SocialMedia />
-          <p className={ternaryTitle}>
-            © 2022 by Renato Oliveira. All rights reserved.
-          </p>
-        </div>
+      </div>
+      <div className="hero-foot has-text-centered is-size-7">
+        <SocialMedia />
+        <p className={ternaryTitle}>
+          © 2022 by Renato Oliveira. All rights reserved.
+        </p>
       </div>
     </div>
   );
