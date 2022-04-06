@@ -14,10 +14,12 @@ const IntroCard = () => {
         Hello World! <br /> I'm Renato Júnio Oliveira.
       </h2>
       <p className="has-text-justified">
-        My academic background focus on the study of languages and cultures.
-        However, during the pandemic, I took the opportunity to further expand
-        my skills in other directions and began learning code. I am determined
-        to become a full-stack developer.
+        My academic background focus on Humanities, Literature and Social
+        Sciences. However, recently I decided to to further expand my skills in
+        other directions and began learning code, focusing on Computer Sciences.
+        This area is a better fit for my interests and personality. I am
+        determined to become a full-stack developer and further progress my
+        skills in this area.
       </p>
     </div>
   );
